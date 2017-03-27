@@ -1,0 +1,31 @@
+%h1 Listing ponentes
+
+%table
+  %thead
+    %tr
+      %th Dni
+      %th Nombres
+      %th Correo
+      %th Telefono
+      %th Bio
+      %th Tags
+      %th
+      %th
+      %th
+
+  %tbody
+    - @ponentes.each do |ponente|
+      %tr
+        %td= ponente.dni
+        %td= ponente.nombres
+        %td= ponente.correo
+        %td= ponente.telefono
+        %td= ponente.bio
+        %td= ponente.tags
+        %td= link_to 'Show', ponente
+        %td= link_to 'Edit', edit_ponente_path(ponente)
+        %td= link_to 'Destroy', ponente, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Ponente', new_ponente_path

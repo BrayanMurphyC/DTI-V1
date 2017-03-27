@@ -1,0 +1,283 @@
+#modal-confirm
+  left: 0
+  top: 0
+  .modal-wrap .sus-form .sus-close
+    background-color: #FFF0E9 !important
+  .subscriber_current_password
+    margin-bottom: 10px
+    margin-top: 20px
+.form-subscriber
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  justify-content: center
+  .form-subscriber-wraper
+    width: 600px
+    padding: 10px
+    box-sizing: border-box
+    .field-image
+      display: flex
+      width: 100%
+      flex-direction: column
+      align-items: center
+      .load-images
+        width: 50%
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        border: 2px dashed rgba(#4B4B4B, .3)
+        border-radius: 50%
+        overflow: hidden
+        margin-bottom: 30px
+
+        img
+          width: 100%
+        .images
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+          display: block
+          #upload-img
+            position: relative
+            transition: all ease-in-out .2s
+            .file
+              opacity: 0
+              position: absolute
+              top: 0
+              z-index: 2
+              width: 100%
+              height: 100%
+              input
+                cursor: pointer
+                width: 100%
+                height: 40px
+            button
+              background-color: #3E454D
+              font-family: "Roboto Condensed", sans-serif
+              border: none
+              display: -webkit-flex
+              display: -ms-flex
+              display: flex
+              align-items: center
+              box-shadow: 0 1px 2px rgba(0,0,0,0.07)
+              padding: 10px 25px
+              border-radius: 5px
+              color: white
+              position: relative
+              cursor: pointer
+              top: 0
+              z-index: 1
+              width: 100%
+              text-transform: uppercase
+              box-sizing: border-box
+              // height: 40px
+              i
+                margin-right: 5px
+                font-size: 30px
+    .input
+      display: -webkit-flex
+      display: -ms-flex
+      display: flex
+      flex-direction: column
+      label
+        font-family: 'Roboto Condensed', sans-serif
+        text-align: left
+        margin-top: 25px
+        margin-bottom: 10px
+    .input > input
+      width: 100%
+      font-family: 'Roboto Condensed', sans-serif
+      color: #4B4B4B
+      background-color: white
+      font-size: 16px
+      box-sizing: border-box
+      border-style: none
+      height: 30px
+      border-bottom: 2px solid rgba(#4B4B4B, .3)
+      box-sizing: border-box
+      &:focus, &:active
+        outline: none
+        border-bottom: 2px solid #00a799
+    .form-select
+      #selecttwo3
+        display: -webkit-flex
+        display: -ms-flex
+        display: flex
+        -webkit-flex-direction: column
+        -ms-flex-direction: column
+        flex-direction: column
+        width: 100%
+      .select2-container--default .select2-search--inline .select2-search__field
+        font-family: 'Roboto', sans-serif
+      .select2-container--default .select2-selection--multiple
+        border-style: none
+        height: 30px
+        box-sizing: border-box
+        border-radius: 0 !important
+        border-bottom: 2px solid rgba(#4B4B4B, .3)
+
+      .select2-container--default.select2-container--focus .select2-selection--multiple
+        border-bottom: 2px solid #00a799 !important
+
+      .select2-dropdown
+        border: 2px solid #E8E8E8 !important
+
+      span.select2.select2-container.select2-container--default.select2-container--above
+        width: 100% !important
+        font-family: 'Roboto', sans-serif
+
+      .select2-container--default .select2-selection--multiple .select2-selection__choice
+        background-color: #E8E8E8
+        font-size: 14px
+        font-family: "Roboto Condensed", sans-serif
+        border-radius: 5px !important
+        padding: 5px !important
+        border: 1px solid transparent !important
+        color: #4B4B4B
+        margin-top: 0px
+
+      .select2-container--default .select2-selection--multiple
+        background-color: transparent !important
+
+
+
+  .btn
+    background-color: #00a799
+    padding: 10px
+    font-size: 15px
+    color: white
+    font-family: "Roboto Condensed", sans-serif
+    border-style: none
+    border-radius: 3px
+    margin-top: 20px
+    cursor: pointer
+
+// mis eventos index
+
+.view-main
+  .view-show
+    .mis-eventos-list
+      display: -webkit-flex
+      display: -ms-flex
+      display: flex
+      justify-content: center
+      width: 100%
+      flex-direction: column
+      background-color: #F3F3F3
+      align-items: center
+      .mis-eventos-wraper
+        display: -webkit-flex
+        display: -ms-flex
+        display: flex
+        flex-wrap: wrap
+        width: 800px
+        padding: 10px
+        .mi-evento
+          width: calc(50% - 20px)
+          box-shadow: 0 1px 2px rgba(0,0,0,0.1)
+          margin: 10px
+          .mi-evento-content
+            width: 100%
+            display: flex
+            overflow: hidden
+            border-radius: 4px
+            .image-mi-evento
+              width: calc(100% - 80px)
+              position: relative
+              &:hover
+                img
+                  filter: contrast(2) grayscale(1) saturate(2)
+                .hover-mi-evento
+                  a
+                    transform: scale(1)
+
+              img
+                transition: all ease-in-out .3s
+                min-width: 100%
+                height: 100%
+              .hover-mi-evento
+                display: block
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                display: flex
+                position: absolute
+                width: 120px
+                a
+                  background-color: #00a799
+                  width: 40px
+                  height: 40px
+                  color: white
+                  text-decoration: none
+                  margin: 5px
+                  border-radius: 50%
+                  display: block
+                  transform: scale(0)
+                  transition: transform ease-in-out .3s
+                  display: -webkit-flex
+                  display: -ms-flex
+                  display: flex
+                  justify-content: center
+                  align-items: center
+                  box-shadow: 0 4px 2px rgba(0,0,0,0.2)
+
+                  i
+                    font-size: 20px
+
+            .is-countdown
+              border: 1px solid rgba(204, 204, 204, 0)
+              background-color: transparent
+              overflow: hidden
+              background-color: rgba(#3E454D, 1)
+              .countdown-row
+                display: flex
+                flex-direction: column
+                justify-content: center
+              .countdown-section
+                color: white
+                font-family: "Roboto Condensed", sans-serif
+                position: relative
+                width: 80px
+                box-sizing: border-box
+                padding-top: 8px
+                padding-bottom: 8px
+
+@media (min-width: 1400px)
+  .view-main
+    .view-show
+      .mis-eventos-list
+        .mis-eventos-wraper
+          width: 1200px
+          .mi-evento
+            width: calc(33.333% - 20px)
+
+
+@media (max-width: 990px)
+  .view-main
+    .view-show
+      .mis-eventos-list
+        .mis-eventos-wraper
+          width: 600px
+          .mi-evento
+            .mi-evento-content
+              flex-direction: column
+              .image-mi-evento
+                width: 100%
+              .is-countdown
+                .countdown-row
+                  flex-direction: row
+
+@media (max-width: 610px)
+  .view-main
+    .view-show
+      .mis-eventos-list
+        .mis-eventos-wraper
+          width: 300px
+          .mi-evento
+            width: 100%
+
+  .form-subscriber
+    .form-subscriber-wraper
+      width: 100%

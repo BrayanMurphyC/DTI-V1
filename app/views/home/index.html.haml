@@ -1,0 +1,295 @@
+
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %title
+    %meta{:content => "width=device-width", :name => "viewport"}/
+    / Custom CSS
+
+  %body
+    .modal#modal-alert
+      .modal-wrap
+        .sus-form
+          .sus-close
+            %i.icon.icon-cancel
+          .error-content
+            %img(src="/assets/error2.jpg" width="200")
+            .mensaje#mensaje
+              -# - if flash[:alert]
+              -#   = flash[:alert]
+              -# = notice
+
+    .modal#modal-ingresar
+      .modal-wrap
+        .sus-form
+          .sus-close
+            %i.icon.icon-cancel
+          = render :template => "subscribers/sessions/new"
+
+    .modal#modal-registrarse
+      .modal-wrap
+        .sus-form
+          .sus-close
+            %i.icon.icon-cancel
+          = render :template => "subscribers/registrations/new"
+
+
+    %header#header
+      %video{:autoplay => "autoplay", :loop => "loop", :muted => "muted", :poster => "/assets/portada.jpg", :src => "/assets/bg.mp4"}
+      .overlay
+      %nav
+        .logo
+          %img{:src => "/assets/logo.png"}/
+        .items
+          .toggle
+            %i.icon.icon-menu3
+          .close
+            %i.icon.icon-close
+          .tabs
+            %li
+              %a.hide.item{:href => "#about"} acerca de
+            %li
+              %a.hide.item{:href => "#eventos"} eventos
+            %li
+              %a.hide.item{:href => "#pub"} articulos
+            %li
+              %a.hide.item{:href => "/documentos"} documentos
+
+            - if subscriber_signed_in?
+              %li
+                = link_to "/perfil", class: "profile-photo hide item", method: :get  do
+                  = image_tag current_subscriber.profile.url(:medium), width: "50"
+              = link_to('SALIR', destroy_subscriber_session_path, :method => :delete, class: "suscribete item hide", id: "ingresar")
+            - else
+              .suscribete#ingresar.item.hide INGRESAR
+              -# .suscribete#registrarse.item.hide REGISTRARSE
+
+      %section#areas.areas-section
+        .area.a1
+          .hover-area
+          %i
+          %p Oferta Tecnológica
+          = link_to "/oferta_tecnologica", method: :get  do
+            %span conócenos
+        .area.a2
+          .hover-area
+          %i
+          %p Propiedad Intelectual, Patentes  y Publicaciones
+          = link_to "/propiedad_intelectual", method: :get  do
+            %span conócenos
+
+        .area.a3
+          .hover-area
+          %i
+          %p Emprendimiento e Incubadora  de Empresas
+          = link_to "/emprendimiento", method: :get  do
+            %span conócenos
+
+      .main-title
+        %p Registrate y unete a nuestra red de contactos !
+        .registrate#registrarse.item.hide REGISTRARSE
+
+    -# %section#about.about-section
+    -#   .wrap-slide
+    -#     %span
+    -#       .msg-btn
+    -#         .shape.show
+    -#           .bubble.bubble-proposito Somos
+    -#           .tip
+    -#         .slide-button
+    -#       .msg-btn
+    -#         .shape
+    -#           .bubble.bubble-mision visión
+    -#           .tip
+    -#         .slide-button
+    -#       .msg-btn
+    -#         .shape
+    -#           .bubble.bubble-vision misión
+    -#           .tip
+    -#         .slide-button
+    -#       .msg-btn
+    -#         .shape
+    -#           .bubble.bubble-valores valores
+    -#           .tip
+    -#         .slide-button
+    -#
+    -#   .overlay-about
+    -#   .about-container
+    -#     .about-wrap.show
+    -#       .about-content
+    -#         %h2.proposito quienes somos
+    -#         %p.proposito La Dirección de Transferencia e Innovación (DTI) es un órgano dependiente del Vicerrectorado de Investigación, encargada de promover y gestionar relaciones e interacciones entre la UNHEVAL y su entorno, particularmente, el sector empresarial, en el área de la investigación e innovación tecnológica. Específicamente está encargada de transferir los resultados de los trabajos de investigación y prestaciones de servicios con entidades públicas y privadas; organizar información para empresas; publicaciones; proteger la propiedad intelectual y el registro de patentes.
+    -#     .about-wrap
+    -#       .about-content
+    -#         %h2.mision nuestra visión
+    -#         %p.mision Ser una universidad con acreditación nacional y de clase internacional, líder en la gestión del capital intelectual, generadora de profesionales de alta competitividad, identificados con la integración social y comprometida con una democracia participativa.
+    -#     .about-wrap
+    -#       .about-content
+    -#         %h2.vision nuestra misión
+    -#         %p.vision Somos una universidad que practica el aseguramiento de la calidad institucional, formadora de profesionales de alto nivel, generadores de conocimiento, comprometidos con la búsqueda de la verdad y la práctica de valores que contribuye al desarrollo sostenible de la región y del país.
+    -#
+    -#
+    -#     .about-wrap
+    -#       .about-content
+    -#         %h2.valores nuestro valores
+    -#         %p.valores Los valores constituyen la base de nuestra cultura organizacional y significan elementos esenciales que forjan la identidad de nuestra universidad, le otorgan singularidad y afirman su presencia social: reponsabilidad, equidad, transparencia, eficiencia, ética profesional, honestidad e identidad
+
+
+
+
+    -# %section#equipo.equipo-section
+      -# .equipo-wrap
+      -#   %h2 nuestro equipo
+      -#   .miembros
+      -#     .miembro
+      -#       .img-profile
+      -#         %img{:src => "/assets/profile1.jpg"}/
+      -#         .semi-circulo.color1
+      -#       %b Nerida del Carmen Pastrana Diaz
+      -#       %span Directora DTI
+      -#     .miembro
+      -#       .img-profile
+      -#         %img{:src => "/assets/profile2.jpg"}/
+      -#         .semi-circulo.color2
+      -#       %b Amparo Espinoza Chávez
+      -#       %span Jefa DTI
+      -#     .miembro
+      -#       .img-profile
+      -#         %img{:src => "/assets/profile3.jpg"}/
+      -#         .semi-circulo.color3
+      -#       %b Carlos Manuel Ventura Matos
+      -#       %span Coordinador EIE
+      -#     .miembro
+      -#       .img-profile
+      -#         %img{:src => "/assets/profile4.jpg"}/
+      -#         .semi-circulo.color4
+      -#       %b Brittzzi Zarate Casachahua
+      -#       %span Coordinadora PIPP
+      -#     .miembro
+      -#       .img-profile
+      -#         %img{:src => "/assets/profile5.jpg"}/
+      -#         .semi-circulo.color5
+      -#       %b Yeltsin Josue Minaya Mallqui
+      -#       %span Editor  de Contenido e Imagen
+      -#     .miembro
+      -#       .img-profile
+      -#         %img{:src => "/assets/profile1.jpg"}/
+      -#         .semi-circulo.color6
+      -#       %b Sin Nombre
+      -#       %span Coordinador OT
+      -#     .miembro
+      -#       .img-profile
+      -#         %img{:src => "/assets/profile1.jpg"}/
+      -#         .semi-circulo.color6
+      -#       %b Sin Nombre
+      -#       %span Coordinador OT
+      -#     .miembro
+      -#       .img-profile
+      -#         %img{:src => "/assets/profile1.jpg"}/
+      -#         .semi-circulo.color6
+      -#       %b Sin Nombre
+      -#       %span Coordinador OT
+
+    %section#eventos.eventos-section
+      .overlay-evento
+      .title-eventos
+        %h2 Nuestros Eventos
+      .eventos-wrap
+        - @events.each do |event|
+          .evento-content
+            = link_to event, :action => 'show', class: "event-item", method: :get  do
+              .date
+                = event.start.day
+                = l(event.start , format: :more_short_month)
+              = image_tag event.photo.url(:medium), :width => "250"
+              %p
+                %small= l(event.start , format: :more_short_date)
+                = event.title
+      .btn_event
+        = link_to "Ver Todas", eventos_path , method: :get
+
+    %section#numeros.numeros-section{"data-stellar-background-ratio" => "0.5", "data-stellar-vertical-offset" => "0"}
+      .overlay-numeros
+      .dark-bg
+      .numeros-wrap
+        .numero
+          %i.icon.icon-happy
+          %h2
+            %span.count 50
+          %p Convenios
+        .numero
+          %i.icon.icon-presentation
+          %h2
+            %span.count 40
+          %p Proyectos
+        .numero
+          %i.icon.icon-flag
+          %h2
+            %span.count 20
+          %p Objetivos Logrados
+        .numero
+          %i.icon.icon-hourglass
+          %h2
+            %span.count 30
+          %p Años de Experiencia
+
+    %section#pub.pub-section
+      .overlay-pub
+      .title-pub
+        %h2 nuestros articulos
+      .pub-container
+        .move-right
+          %span.icon.icon-arrow-left
+        .pub-wrap
+          .pub-move
+            - @articulos.each do |a|
+              .pub-content
+                = link_to a, :action => 'show', class: "event-item" , method: :get do
+                  = image_tag a.cover_article.url(:medium), :width => "100%"
+                  .pub-body
+                    .pub-title= a.title
+
+                    .pub-text= raw a.body.truncate(150)
+                    -# .pub-text= markdown truncate(a.body, length: 150)
+
+        .move-left
+          %span.icon.icon-arrow-right
+      .btn_pub
+        = link_to "Ver Todas", articulos_path, method: :get
+
+    %section.socios-section
+      .socios-wrap
+        %img{:src => "/assets/socio1.png"}/
+        %img{:src => "/assets/socio2.png"}/
+        %img{:src => "/assets/socio3.png"}/
+    %section.footer-section{"data-stellar-background-ratio" => "0.5", "data-stellar-vertical-offset" => "0"}
+      .dark-footer
+      .overlay-footer
+      .footer-wrap
+        .contact
+          .social-icon
+            %i
+              %a.icon.icon-facebook{:href => "https://www.facebook.com/Direcci%C3%B3n-de-Transferencia-e-Innovaci%C3%B3n-Unheval-881641215272116/", :target => "_blank"}
+            %i
+              %a.icon.icon-twitter{:href => "https://twitter.com/DTI_Unheval", :target => "_blank"}
+            %i
+              %a.icon.icon-youtube{:href => "https://www.youtube.com/channel/UCBbNSHmCDwwRkgty0H3wZcg", :target => "_blank"}
+          .phone
+            %b> Teléfono:
+            (062) - 591060
+          .mail
+            %b> Correo:
+            dti.vri@unheval.edu.pe
+        .question
+          %p ¿Alguna Consulta?
+          .form-consulta
+            %input.field-q{:placeholder => "Email", :type => "text"}/
+            %input.field-q{:placeholder => "Asunto", :type => "text"}/
+            %textarea.consulta{:placeholder => "Mensaje"}
+            %input.btn-q{:type => "submit", :value => "Enviar"}/
+        .other
+          .logo-unheval
+            %img{:src => "/assets/logo-unheval.png"}/

@@ -1,0 +1,30 @@
+= simple_form_for @articulo do |f|
+  - if @articulo.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@articulo.errors.count, "error")} prohibited this articulo from being saved:"
+      %ul
+        - @articulo.errors.full_messages.each do |msg|
+          %li= msg
+
+
+  .form-content
+    .form-wrap
+      .field-image
+        .load-images
+          .images
+            #upload-img
+              .file.fileUpload
+                = f.file_field :cover_article , label: false, onChange: 'previewFile3()'
+              %button
+                %i.icon.icon-photo
+                Portada
+          = form_cover_article_select(@articulo)
+      .field-form
+        = f.input :title, class: "inputs", label: false, placeholder: "Titulo del Articulo"
+      .field-form
+        ~ f.cktext_area  :body,:ckeditor => { toolbar: 'Pure' }, as: :text, label: false, placeholder: "Contenido del Articulo"
+
+      .field-form
+        = f.input :tags, class: "inputs", label: false, placeholder: "Tags del Articulo"
+      .btn-guardar
+        = f.button :submit ,"Guardar Articulo"

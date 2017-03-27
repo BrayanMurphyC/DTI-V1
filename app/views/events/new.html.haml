@@ -1,0 +1,6 @@
+.view-main
+  = render "layouts/nav"
+  .view-show
+    %h1 Nuevo Evento
+    = render 'form', event: @event
+    = link_to 'Back', eventos_path

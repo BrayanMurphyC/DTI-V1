@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Tema:
+  = @evento_ponente.tema
+%p
+  %b Rate:
+  = @evento_ponente.rate
+%p
+  %b Ponente:
+  = @evento_ponente.ponente_id
+%p
+  %b Event:
+  = @evento_ponente.event_id
+
+= link_to 'Edit', edit_evento_ponente_path(@evento_ponente)
+\|
+= link_to 'Back', evento_ponentes_path

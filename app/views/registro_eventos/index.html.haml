@@ -1,0 +1,17 @@
+.asistente-section
+  .asistente-wrap
+    .label-search Buscar Asistente
+    %table#registro_evento
+      %thead
+        %tr
+          %th Subscriber
+      %tbody
+        - @registro_eventos.each do |registro_evento|
+          %tr
+            %td
+              .asistente-info
+                = image_tag registro_evento.subscriber.profile(:medium), width: "80"
+                .asistente-content
+                  %b= registro_evento.subscriber.nombres
+                  %h4= registro_evento.subscriber.email
+                  = link_to 'Eliminar', registro_evento, :method => :delete, :data => { :confirm => 'Are you sure?' }

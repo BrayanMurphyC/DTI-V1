@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Titulo:
+  = @documento.titulo
+%p
+  %b Descripcion:
+  = @documento.descripcion
+%p
+  %b User:
+  = @documento.user.email
+
+= link_to 'Edit', edit_documento_path(@documento)
+\|
+= link_to 'Back', documentos_path

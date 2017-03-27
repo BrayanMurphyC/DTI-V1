@@ -1,0 +1,33 @@
+= simple_form_for @ponente do |f|
+  - if @ponente.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@ponente.errors.count, "error")} prohibited this ponente from being saved:"
+      %ul
+        - @ponente.errors.full_messages.each do |msg|
+          %li= msg
+  .form-content
+    .form-wrap
+      .field-image
+        .load-images
+          .images
+            #upload-img
+              .file.fileUpload
+                = f.file_field :profile , label: false, onChange: 'previewFile5()'
+              %button
+                %i.icon.icon-photo
+                Perfil
+          = form_profile_select2(@ponente)
+      .field-form
+        = f.input :dni, label: false, placeholder: "Dni"
+      .field-form
+        = f.input :nombres, label: false, placeholder: "Nombres"
+      .field-form
+        = f.input :correo, label: false, placeholder: "Correo"
+      .field-form
+        = f.input :telefono, label: false, placeholder: "Teléfono"
+      .field-form
+        = f.input :bio, as: :text, label: false, placeholder: "Biografía"
+      .field-form.form-select
+        = f.select(:tags, ["tecnologia","innovacion","emprendimiento","investigacion"], {:include_blank => true}, {:multiple => true,  :id =>"selecttwo2",  :data =>{:placeholder => 'Seleccione los Tags '} }  )
+      .btn-guardar
+        = f.button :submit ,"Guardar Ponente"

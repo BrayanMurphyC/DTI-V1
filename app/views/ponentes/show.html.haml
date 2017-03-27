@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Dni:
+  = @ponente.dni
+%p
+  %b Nombres:
+  = @ponente.nombres
+%p
+  %b Correo:
+  = @ponente.correo
+%p
+  %b Telefono:
+  = @ponente.telefono
+%p
+  %b Bio:
+  = @ponente.bio
+%p
+  %b Tags:
+  = @ponente.tags
+
+= link_to 'Edit', edit_ponente_path(@ponente)
+\|
+= link_to 'Back', ponentes_path

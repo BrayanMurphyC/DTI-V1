@@ -1,0 +1,18 @@
+.form-content.form-content-main
+  .bg-ingresar.bg-reg
+    %img(src="/assets/bg-modal.jpg" width="100%")
+  .fields
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :dni, required: true, label: "Numero de DNI"
+        = f.input :nombres, required: true, label: "Nombres y Apellidos"
+        = f.input :email, required: true, autofocus: true, label: "Correo Electronico"
+        = f.input :password, required: true, label: "Contraseña", input_html: { id: 'contraseña'}
+        = f.input :password_confirmation, required: true, label: "Confirmar Contraseña"
+        .input-select
+          %label Preferencias
+          = f.select(:tags, ["tecnologia","innovacion","emprendimiento","investigacion"], {:include_blank => true}, {:multiple => true,  :id =>"selecttwo",  :data =>{:placeholder => 'Seleccione sus preferencias'} }  )
+
+      .form-actions
+        = f.button :submit, "Registrarse"

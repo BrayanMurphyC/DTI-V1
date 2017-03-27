@@ -1,0 +1,1 @@
+json.array! @ponentes, partial: 'ponentes/ponente', as: :ponente

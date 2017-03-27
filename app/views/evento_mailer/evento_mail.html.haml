@@ -1,0 +1,26 @@
+%head
+  %link{:href => "https://fonts.googleapis.com/css?family=Antic|Anton|Roboto+Condensed", :rel => "stylesheet"}/
+%body
+  %div{:style => "width: 600px;margin: 0 auto; text-align: justify; font-family: inherit; color: #353535; font-size: 13px; line-height: 20px;"}
+    %font.saludo
+      Hola, #{@email}
+    %img{:alt => "", :src => ""}/
+    %h2{:style => "font-weight: normal;color: #505050;"}
+      = @titulo
+      %h2
+        %span{:style => " display: block;width: 100%; height: 1px; background-color: #F4F4F4;"}
+        = image_tag attachments[@photo].url, :width => "100%"
+    %p{:style => "font-weight: normal;font-size: 12px;color: #505050;text-align: justify;line-height: 1.5;"}
+      = raw @contenido
+    %p{:style => "font-weight: normal;font-size: 12px;color: #505050;"}
+      %strong Informacion:
+      %br/
+      Vicerrectorado de Investigacion - Unheval
+      %br/
+      Huanuco (Perú)
+    %div{:style => "display: table;font-weight: normal;font-size: 13px;color: #505050;"}
+      %p{:style => "display: table-cell;"}
+        Actualiza tus preferencias | ¿No deseas recibir más estos correos?, puedes darte de baja desde
+      %p
+        %a{:href => "https://www.facebook.com/", :target => "_blank"}
+          %span{:style => "padding-left: 3px;"} Aquí.

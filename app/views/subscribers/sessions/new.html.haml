@@ -1,0 +1,20 @@
+.form-content.form-content-main
+  .bg-ingresar
+    %img(src="/assets/bg-modal2.jpg" width="100%")
+  .fields
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-inputs
+        = f.input :email, required: false,label: "Correo Electronico", autofocus: true
+        = f.input :password, required: false,label: "Contraseña"
+        -# = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+      .form-actions
+        = f.button :submit, "Ingresar", id:"login-btn"
+    -# = render "subscribers/shared/links"
+    .social-modal
+      %i
+        %a.icon.icon-facebook{:href => "https://www.facebook.com/Direcci%C3%B3n-de-Transferencia-e-Innovaci%C3%B3n-Unheval-881641215272116/", :target => "_blank"}
+      %i
+        %a.icon.icon-twitter{:href => "https://twitter.com/DTI_Unheval", :target => "_blank"}
+      %i
+        %a.icon.icon-youtube{:href => "https://www.youtube.com/channel/UCBbNSHmCDwwRkgty0H3wZcg", :target => "_blank"}
+    .info-modal Ingresa para que puedas incribirte en nuestro evento y mas.

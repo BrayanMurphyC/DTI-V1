@@ -1,0 +1,39 @@
+- content_for :menu do
+  %li
+    %i.icon.icon-new
+    = link_to 'Nuevo Evento', new_event_path
+
+.view-main
+  = render "layouts/nav"
+  .eventos
+    .eventos-wrap
+      - @events.each do |event|
+        .event-list
+          = link_to event, :action => 'show', class: "event-item", method: :get  do
+            .logo-event= image_tag event.photo.url(:medium)
+
+            .body-evento
+              %h2= event.title
+              -# .list-info-event
+              -#   .list-like
+              -#     %p.icons-date.icon.icon-heart
+              -#     %p= event.score
+              -#   .list-like
+              -#     %p.icons-date.icon.icon-view
+              -#     %p= event.view_count
+            .date-info
+              .date-info-wrap
+                .hora-event
+                  %i.icons-date.icon.icon-date
+                  %p= l(event.start , format: :more_short_date)
+                .hora-event
+                  %i.icons-date.icon.icon-time
+                  %p= l(event.start , format: :short_hour)
+              .lugar-event
+                %i.icons-date.icon.icon-lugar
+                %p= truncate(event.lugar, length: 30)
+
+          - if user_signed_in?
+            .btn_admin
+              = link_to '', edit_event_path(event), class: "icon icon-edit"
+              = link_to '', event,class: "icon icon-close", method: :delete, data: { confirm: 'Seguro que quieres eliminar este evento?' }

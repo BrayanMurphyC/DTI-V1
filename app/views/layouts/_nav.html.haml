@@ -1,0 +1,46 @@
+%input(type="checkbox" id="menu")
+.header-section
+  .header-nav
+    .logo-wraper
+      .overlay-wraper
+      - if subscriber_signed_in?
+        .profile-nav
+          = link_to "/perfil", class: "profile-photo hide item", method: :get  do
+            = image_tag current_subscriber.profile.url(:medium), width: "60"
+          .profile-name
+            %p= truncate(current_subscriber.nombres.split(" ")[0], length: 20)
+      -else
+        .logo
+    .items
+      %ul
+        %li
+          %i.icon.icon-home
+          = link_to 'Inicio', root_path, method: :get
+        - if subscriber_signed_in?
+          %li
+            %i.icon.icon-user
+            = link_to 'Mi Perfil', "/perfil"
+          = content_for :profile_menu
+
+        %li
+          %i.icon.icon-evento
+          = link_to 'Eventos', eventos_path
+        %li
+          %i.icon.icon-articulo
+          = link_to 'Articulos', articulos_path
+
+
+        - if subscriber_signed_in?
+          %li
+            %i.icon.icon-cancel
+            = link_to('Salir', destroy_subscriber_session_path, :method => :delete)
+
+        - if user_signed_in?
+          = content_for :menu
+          %li
+            %i.icon.icon-cancel
+            = link_to('Salir', destroy_user_session_path, :method => :delete)
+
+    .copyright
+      %p  © 2016 Omar Benjamin. All Rights Reserved
+  %label(class="icon-menu" for="menu") ≡

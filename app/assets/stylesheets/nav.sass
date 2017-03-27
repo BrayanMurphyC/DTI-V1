@@ -1,0 +1,156 @@
+.view-show
+  width: calc(100% - 100px)
+  margin-left: 100px
+  overflow: hidden
+  background-color: #fff
+  h1
+    font-family: 'Roboto Condensed', sans-serif
+    color: #4B4B4B
+
+.view-main
+  display: flex
+  position: relative
+  #menu
+    display: none
+  .header-section
+    width: 100px
+    height: 100vh
+    position: fixed
+    display: flex
+    left: 0
+    z-index: 50
+    transition: all 0.5s cubic-bezier(0.77, 0.02, 0.36, 0.96)
+    .icon-menu
+      font-size: 30px
+      position: relative
+      cursor: pointer
+      color: white
+      background-color: #00a799
+      justify-content: center
+      align-items: center
+      width: 35px
+      height: 35px
+      margin-right: -35px
+      display: none
+    .header-nav
+      height: 100%
+      background-color: #141E28
+      width: 100%
+      position: relative
+      box-shadow: 0px 0px 8px 4px rgba(0,0,0,.1)
+      .logo-wraper
+        background-color: #141E28
+        height: 140px
+        display: flex
+        align-items: center
+        justify-content: center
+        position: relative
+        .overlay-wraper
+          background-image: url(/assets/overlay-pattern3.png) !important
+          background-repeat: repeat
+          height: 100%
+          left: 0
+          position: absolute
+          top: 0
+          width: 100%
+          z-index: 0
+          opacity: .6
+        .profile-nav
+          position: relative
+          display: -webkit-flex
+          display: -ms-flex
+          display: flex
+          flex-direction: column
+          a
+            img
+              border: 2px solid white
+              border-radius: 50%
+          .profile-name
+            display: -webkit-flex
+            display: -ms-flex
+            display: flex
+            justify-content: flex-end
+            flex-direction: column
+            p
+              color: white
+              font-family: 'Open Sans', sans-serif
+              font-size: 11px
+              text-transform: uppercase
+              font-weight: normal
+
+        .logo
+          transform: scale(.8)
+          width: 100%
+          height: 70px
+          background:
+            image: url(logo.png)
+            repeat: no-repeat
+            size: contain
+      .items
+        position: relative
+        ul
+          text-align: right
+          padding: 0
+          margin-top: 0px
+          margin-bottom: 0px
+          li
+            display: flex
+            justify-content: space-around
+            align-items: center
+            box-sizing: border-box
+            flex-direction: column
+            transition: all ease-in-out .3s
+            border-bottom: 1px solid rgba(#00a799, .05)
+            color: white
+            font-family: 'Open Sans', sans-serif
+            width: 100%
+            &:hover
+              background-color: #00a799
+              i
+                color: white
+              a
+                color: white
+            &:first-child
+              border-top: 1px solid rgba(#00a799, .05)
+            i
+              font-size: 20px
+              margin-top: 20px
+            a
+              padding:
+                bottom: 20px
+                top: 10px
+              color: white
+              text-decoration: none
+              position: relative
+              display: flex
+              cursor: pointer
+              justify-content: center
+              align-items: center
+              text-transform: capitalize
+              font-size: 10px
+              text-transform: uppercase
+              font-weight: normal
+              height: 100%
+              width: 80%
+              text-align: center
+
+      .copyright
+        display: block
+        font-size: 11px
+        opacity: 0
+
+@media (max-width: 750px)
+  .view-main
+    .header-section
+      left: -100px
+      .icon-menu
+        display: block
+
+    #menu
+      display: none
+      &:checked + .header-section
+        left: 0
+
+    .eventos, .view-show
+      width: 100%
+      margin-left: 0px

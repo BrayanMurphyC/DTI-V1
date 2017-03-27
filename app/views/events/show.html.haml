@@ -1,0 +1,121 @@
+- content_for :menu do
+  %li
+    %i.icon.icon-edit
+    = link_to 'Editar Evento', edit_event_path(@event)
+
+.modal#modal-add-ponente
+  .modal-wrap
+    .sus-form
+      .sus-close
+        %i.icon.icon-cancel
+      .form-content
+        .fields
+          .label-search Buscar Ponente
+          %table#ponentes_table
+            %thead
+              %tr
+                %th PONENTE
+
+            %tbody
+              - @ponentes.each do |ponente|
+                %tr
+                  %td.tema
+                    .nombre-ponente-search
+                      = image_tag ponente.profile.url(:medium), width: 50, height: 50
+                      %p=  truncate(ponente.nombres, length: 25)
+                      .btn-tema
+                        %span.display-tema +
+                        %span.hide-tema -
+                    .tema-content.hide
+                      = form_for([ @event , @evento_ponente], remote: true, :format => :js)  do |f|
+                        .input.field-tema
+                          = f.text_field :tema, placeholder: "Ingrese tema", id: "tema-field"
+                          = f.hidden_field :ponente_id, value: ponente.id
+                        .actions
+                          = f.submit 'Guardar', class: "btn"
+
+
+.view-main
+  = render "layouts/nav"
+  .view-show
+    %section.cover{ :style => "background-image: url('#{@event.cover.url(:medium)}');"}
+      .overlay-header
+      %h2.titulo
+        = @event.title
+      .fecha
+      - if subscriber_signed_in?
+        .status
+          - if @registro_eventos
+            .remove-event
+              - @registro_eventos.each do |registro_evento|
+                = link_to 'Inscrito', registro_evento, :method => :delete, id: "remove", remote: true
+                %i.icon.icon-remove_event
+            .add-event#add
+              = form_for([ @event , @registro_evento], remote: true) do |f|
+                = f.hidden_field :subscriber_id
+                .inscribirse#add_btn
+                  - if @registro_eventos.blank?
+                    = f.submit 'Inscribirse'
+                    %i.icon.icon-add_event
+
+
+
+
+    %section.contenido
+      .contenido-wrap
+        .info
+          .about-event
+            %font
+              %i.icon.icon-time
+              Publicado hace : #{time_ago_in_words(@event.created_at)}
+            %font
+              %i.icon.icon-user
+              Por: #{@event.user.email}
+            %font
+              %i.icon.icon-view
+              Visitas: #{@event.view_count}
+          .like-event
+            - if subscriber_signed_in?
+              - if current_subscriber.voted_as_when_voted_for @event
+                = link_to "", dislike_event_path(@event), method: :put, class: "icon icon-heart dislike", remote: true
+              - else
+                = link_to "", like_event_path(@event), method: :put, class: "icon icon-like-o like", remote: true
+        .line
+        .body-event-main
+          = raw @event.body #markdown reeplace por raw
+        .ponente-title
+          %i.icon.icon-user2
+          %p Ponentes
+        .line
+        .ponentes
+          #ponentes
+            = render partial: 'evento_ponentes/evento_ponente'
+          - if user_signed_in?
+            .add-ponente#add-ponente
+              %i.icon.icon-user-add
+
+        .tags
+          -# %i.icon.icon-tag
+          -# - @tags.each do |tag|
+          -#   %p= tag
+
+        .botones1
+          -# = twitter_button
+          -# = pinterest_button
+          -# = linkedin_button
+          -# = reddit_button
+          -# = google_plus_button
+          -# = tumblr_button
+          -# = stumble_upon_button
+        .botones2
+          -# = render_shareable :buttons=> ['facebook'],:facebook=> {:send=> 'true', :url=> 'https://github.com/BrayanMurphyC'} #<!--ENVIA LO QUE ES  LA URI BORRAR HTTP-->
+
+        -# .botones3
+        -#   = render_shareable :buttons=> ['google_plus'],:google_plus=> {:send=> 'true'} #boton google_plus
+        -#   = render_shareable :static_link => true #solo texto
+        .botones4
+          -# = render_shareable  #aparecen todos
+          -# https://github.com/hermango/shareable DOCUMENTACIÓN DE LA GEMA
+    = javascript_tag do
+      $(".fecha").countdown({
+      until: new Date(#{@event.start.year}, #{@event.start.month}-1, #{@event.start.day}, #{@event.start.hour},  #{@event.start.min})});

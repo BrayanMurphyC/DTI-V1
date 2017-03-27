@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ * require dataTables/jquery.dataTables
+ *
+ *= require select2
+ *= require_tree .
+ *= require_self
+ *= require jquery.countdown
+ */
+
+ body, #notice{
+   position: relative;
+   margin: 0 ;
+   background-color: #F3F3F3;
+ }
+
+.ErrorValidation{
+  border-bottom: 2px solid #e86060 !important;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+.Validation{
+  border-bottom: 2px solid #16B66A !important;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.subscriber_password_confirmation , .subscriber_password{
+  position: relative;
+}
+
+.subscriber_password_confirmation i , .subscriber_password i{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 20px;
+}
+
+.subscriber_password_confirmation #icon_error , .subscriber_password #icon_error2{
+  color: #e86060;
+}
+
+.subscriber_password_confirmation #icon_validation , .subscriber_password #icon_validation2{
+  color: #16B66A;
+}
+
+
+/*ESTILO ORDENADO BOTONES REDES SOCIALES*/
+nav.share {display:inline-block;} /* shareable's nav tag */
+nav.share div {float:left;}
+nav.share iframe {border:0; margin-top:0; padding-top:0;} /* if using medium sized buttons */
+#___plusone_0 {font-size: default !important;}
+.fb_iframe_widget span { vertical-align: top; }
+.fb_edge_widget_with_comment { vertical-align: top;}
+.fb-like{display:inline-block}
+* html .fb-like{display:inline}/* ie6 inline block fix*/
+*+html .fb-like{display:inline}/* ie7 inline block fix*/

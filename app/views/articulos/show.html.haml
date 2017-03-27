@@ -1,0 +1,40 @@
+- content_for :menu do
+  %li
+    %i.icon.icon-edit
+    = link_to 'Editar Articulo', edit_articulo_path(@articulo)
+.view-main
+  = render "layouts/nav"
+  .view-show
+    .articulo-section
+      .articulo-wrap
+        .articulo-title
+          %h1= @articulo.title
+
+        .articulo-cover
+          = image_tag @articulo.cover_article.url(:medium)
+        .info
+          %font
+            %i.icon.icon-time
+            Publicado hace : #{time_ago_in_words(@articulo.created_at)}
+          %font
+            %i.icon.icon-user
+            Por: #{@articulo.user.email}
+          %font
+            %i.icon.icon-view
+            Visitas: #{@articulo.visitas}
+          %font.like-event
+            - if subscriber_signed_in?
+              - if current_subscriber.voted_as_when_voted_for @articulo
+                = link_to "", dislike_articulo_path(@articulo), method: :put, class: "icon icon-heart dislike", remote: true
+              - else
+                = link_to "", like_articulo_path(@articulo), method: :put, class: "icon icon-like-o like", remote: true
+
+        .articulo-body
+          = raw @articulo.body
+        .articulo-tags
+          %i.icon.icon-tag
+          - @tags.each do |tag|
+            %p= tag
+
+        .comentario-articulo
+          = render 'disqus'

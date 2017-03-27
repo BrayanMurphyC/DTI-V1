@@ -1,0 +1,1 @@
+json.partial! "ponentes/ponente", ponente: @ponente

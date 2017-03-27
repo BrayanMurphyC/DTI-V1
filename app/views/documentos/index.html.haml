@@ -1,0 +1,21 @@
+.view-main
+  = render "layouts/nav"
+  .view-show
+    .asistente-section.documentos-section
+      .asistente-wrap
+        .label-search Buscar Documento
+        %table#documentos
+          %thead
+            %tr
+              %th Titulo
+          %tbody
+            - @documentos.each do |documento|
+              %tr
+                %td
+                  .asistente-info
+                    = link_to "", documento.archivo.url(:original, true), class: "icon icon-download", target: "_blank"
+                    .asistente-content
+                      .info-doc
+                        %h2= truncate(documento.titulo, length: 50)
+                        %small= documento.user.email
+                      %span= truncate(documento.descripcion, length: 200)

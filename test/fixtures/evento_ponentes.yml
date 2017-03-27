@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tema: MyString
+  rate: 1
+  ponente_id: 1
+  event_id: 1
+
+two:
+  tema: MyString
+  rate: 1
+  ponente_id: 1
+  event_id: 1

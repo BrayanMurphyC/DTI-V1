@@ -1,0 +1,25 @@
+- content_for :menu do
+  %li
+    %i.icon.icon-new
+    = link_to 'Nuevo Articulo', new_articulo_path
+.view-main
+  = render "layouts/nav"
+  .view-show
+    .articulo-content
+      .articulos-list#articulos-list
+        - @articulos.each do |articulo|
+          .articulo-item
+            .articulo-titulo
+              = articulo.title
+            .articulo-posted
+              = l(articulo.created_at , format: :short_year)
+            -# .articulo-cuerpo= markdown truncate( articulo.body , length: rand(200 .. 400))
+            .articulo-cuerpo= raw articulo.body.truncate(rand(200 .. 400))
+            .read-more
+              = link_to articulo, :action => 'show', class: "event-item", method: :get  do
+                %p Leer Articulo
+                %i.icon.icon-arrow-right
+            - if user_signed_in?
+              .link_admin_article
+                %td= link_to '', edit_articulo_path(articulo),class: "icon icon-edit"
+                %td= link_to '', articulo,class: "icon icon-close", :method => :delete, :data => { :confirm => 'Are you sure?' }

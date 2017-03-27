@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Certificado:
+  = @registro_evento.certificado
+%p
+  %b Asistencia:
+  = @registro_evento.asistencia
+%p
+  %b Event:
+  = @registro_evento.event_id
+%p
+  %b Subscriber:
+  = @registro_evento.subscriber_id
+
+= link_to 'Edit', edit_registro_evento_path(@registro_evento)
+\|
+= link_to 'Back', registro_eventos_path

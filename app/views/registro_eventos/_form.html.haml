@@ -1,0 +1,16 @@
+
+= form_for([ @event , @registro_evento], remote: true) do |f|
+  - if @registro_evento.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@registro_evento.errors.count, "error")} prohibited this registro_evento from being saved:"
+      %ul
+        - @registro_evento.errors.full_messages.each do |msg|
+          %li= msg
+
+  -# .field
+  -#   = f.label :certificado
+  -#   = f.check_box :certificado
+  .field
+    = f.hidden_field :subscriber_id
+  .inscribirse#add_btn
+    = f.submit 'Añadir Inscripción'

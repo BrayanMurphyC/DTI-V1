@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  certificado: false
+  asistencia: false
+  event_id: 1
+  subscriber_id: 1
+
+two:
+  certificado: false
+  asistencia: false
+  event_id: 1
+  subscriber_id: 1

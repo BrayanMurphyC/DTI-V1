@@ -1,0 +1,246 @@
+
+.articulo-section
+  display: flex
+  justify-content: center
+  width: 100%
+  background-color: white
+  .articulo-wrap
+    padding: 20px
+    width: 800px
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    .comentario-articulo
+      width: 100%
+    .info
+      width: 100%
+      box-shadow: 0 1px 2px rgba(0,0,0,0.07)
+      background-color: #fff
+      padding: 10px
+      border-radius: 4px
+      box-sizing: border-box
+      display: -webkit-flex
+      display: -ms-flex
+      color: #4B4B4B
+      display: flex
+      justify-content: space-between
+      font.like-event
+        a
+          text-decoration: none
+          padding: 8px
+          border-radius: 3px
+          font-size: 16px
+          cursor: pointer
+        a.like
+          color: #4B4B4B
+          border: 1px solid #4B4B4B
+        a.dislike
+          color: #FF5252
+          border: 1px solid #FF5252
+      font
+        display: -webkit-flex
+        display: -ms-flex
+        display: flex
+        font-size: 15px
+        align-items: center
+        color: #4B4B4B
+        font-family: 'Source Sans Pro', sans-serif
+        i
+          font-size: 20px
+          margin-right: 10px
+    .articulo-title
+      display: flex
+      justify-content: center
+      flex-direction: column
+      align-items: center
+      margin-bottom: 5px
+      width: 100%
+      h1
+        text-transform: uppercase
+        font-size: 40px
+        color: #4B4B4B
+        font-family: 'Open Sans', sans-serif
+      em
+        margin-top: -20px
+        font-size: 13px
+    .articulo-cover
+      img
+        width: 100%
+        box-shadow: 0 1px 2px rgba(0,0,0,0.07)
+        border-radius: 5px
+    .articulo-body
+      width: 100%
+      color: #4B4B4B
+      font-family: 'Source Sans Pro', sans-serif
+      font-weight: normal
+      text-align: justify
+      line-height: 1.5
+      font-size: 16px
+    .articulo-tags
+      width: 100%
+      display: flex
+      align-items: center
+      margin-top: 10px
+      margin-bottom: 10px
+      .icon-tag
+        margin-right: 10px
+        color: #4B4B4B
+        font-size: 20px
+      p
+        background-color: #e8e8e8
+        color: #4B4B4B
+        margin-right: 10px
+        text-transform: capitalize
+        font-size: 13px
+        padding:
+          top: 8px
+          bottom: 8px
+          left: 15px
+          right: 15px
+        border-radius: 10px
+
+//articulos index
+.articulo-content
+  width: 100%
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  flex-direction: column
+  align-items: center
+  background-color: #f3f3f3
+  .articulos-list
+    width: 1200px
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+    flex-wrap: wrap
+    .articulo-item
+      margin-top: 10px
+      width: calc(25% - 10px)
+      position: relative
+      border-radius: 4px
+      background-color: #fff
+      box-shadow: 0 1px 2px rgba(0,0,0,0.07)
+      overflow: hidden
+      transition: all ease-in-out .3s
+      &:hover
+        .link_admin_article
+          margin-top: 0
+        .read-more
+          a
+            background-color: #3E454D
+            color: white
+            i
+              color: white
+
+
+      .articulo-titulo
+        font-family: 'Lobster', cursive
+        font-size: 24px
+        margin-bottom: -20px
+        padding: 30px
+        box-sizing: border-box
+        text-align: left
+        color: #4B4B4B
+        margin-top: 20px
+        text-transform: capitalize
+      .articulo-posted
+        text-transform: uppercase
+        color: #515151
+        padding-left: 30px
+        font-family: 'Source Sans Pro', sans-serif
+        text-align: left
+      .articulo-cuerpo
+        color: #4B4B4B
+        font-family: 'Source Sans Pro', sans-serif
+        text-align: justify
+        padding: 10px 30px 30px 30px
+        font-size: 15px
+        transition: all ease-in-out .3s
+        h1,h2,h3,h4,h5
+          font-size: 100%
+      .link_admin_article
+        background-color: #00a799
+        position: absolute
+        width: 100px
+        margin-top: -50px
+        border-bottom-left-radius: 4px
+        padding: 8px
+        top: 0
+        right: 0
+        display: -webkit-flex
+        display: -ms-flex
+        display: flex
+        transition: all ease-in-out .5s
+        justify-content: space-around
+        box-shadow: 0 1px 2px rgba(0,0,0,0.07)
+        a
+          text-decoration: none
+          color: white
+          font-size: 18px
+          transition: all ease-in-out .2s
+          cursor: pointer
+          &:hover
+            color: #4B4B4B
+
+      .read-more
+        a
+          text-decoration: none
+          background-color: darken(#fff, 2%)
+          height: 60px
+          display: -webkit-flex
+          display: -ms-flex
+          display: flex
+          align-items: center
+          color: #4B4B4B
+          font-size: 12px
+          width: 100%
+          text-transform: uppercase
+          font-family: 'Source Sans Pro', sans-serif
+          justify-content: space-around
+          transition: all ease-in-out .3s
+        i
+          padding: 10px
+          color: #4B4B4B
+          font-size: 18px
+@media (max-width : 1400px)
+  .articulo-content
+    .articulos-list
+      width: 900px
+      .articulo-item
+        width: calc(33.333% - 10px)
+
+@media (max-width : 1200px)
+  .articulo-content
+    .articulos-list
+      width: 800px
+      .articulo-item
+        width: calc(33.333% - 10px)
+
+@media (max-width : 1000px)
+  .articulo-content
+    .articulos-list
+      width: 700px
+      .articulo-item
+        width: calc(33.333% - 10px)
+
+@media (max-width : 900px)
+  .articulo-content
+    .articulos-list
+      width: 100%
+
+@media (max-width : 720px)
+  .articulo-content
+    .articulos-list
+      width: 100%
+      .articulo-item
+        width: calc(50% - 10px)
+
+@media (max-width : 500px)
+  .articulo-content
+    .articulos-list
+      width: 100%
+      .articulo-item
+        margin-left: 10px
+        width: calc(100% - 20px)

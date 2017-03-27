@@ -1,0 +1,10 @@
+- @evento_ponentes.each do |evento_ponente|
+  .ponente(id="ponente-#{evento_ponente.id}")
+    .img-ponente
+      - if user_signed_in?
+        .hover-ponente
+          %i.icon= link_to '', evento_ponente, :method => :delete, :data => { :confirm => 'Are you sure?' }, remote: true, class: "icon-close"
+      -# %img(src="/assets/placeholder_profile.png" width="100")
+      = image_tag evento_ponente.ponente.profile(:medium), width: 100
+    %h3= evento_ponente.ponente.nombres
+    %small= evento_ponente.tema

@@ -1,0 +1,45 @@
+= simple_form_for @event, html: { multipart: true } do |f|
+  - if event.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(event.errors.count, "error")
+        prohibited this event from being saved:
+      %ul
+        - event.errors.full_messages.each do |message|
+          %li= message
+  .form-content
+    .form-wrap
+      .field-image
+        .load-images
+          .images
+            #upload-img
+              .file.fileUpload
+                = f.file_field :cover , label: false, onChange: 'previewFile()'
+              %button
+                %i.icon.icon-photo
+                Portada
+          = form_image_select(@event)
+
+        .load-images
+          .images
+            #upload-img
+              .file.fileUpload
+                = f.file_field :photo , label: false, onChange: 'previewFile2()'
+              %button
+                %i.icon.icon-photo
+                Logo
+          = form_logo_select(@event)
+
+      .field-form
+        = f.input :title , label: false, placeholder: "Nombre del Evento", class: "inputs"
+      .field-form
+        = f.input :lugar , label: false, placeholder: "Lugar", class: "inputs"
+      .field-form
+        = f.input :start, as: :datetime, label: false
+      .field-form
+        ~ f.cktext_area :body,:ckeditor => { toolbar: 'Pure' }, as: :text, label: false, placeholder: "Descripcion del Evento"
+      .field-form.form-select
+        = f.select(:tags, ["tecnologia","innovacion","emprendimiento","investigacion"], {:include_blank => true}, {:multiple => true,  :id =>"selecttwo2",  :data =>{:placeholder => 'Seleccione los Tags '} }  )
+
+      .btn-guardar
+        = f.button :submit ,"Guardar Evento"

@@ -1,0 +1,22 @@
+.view-main
+  = render "layouts/nav"
+  .view-show
+    .mis-eventos-list
+      %h1 MIS EVENTOS
+      .mis-eventos-wraper
+        - @perfil_eventos.each do |perfil_evento|
+          .mi-evento(id="mi-event-#{perfil_evento.id}")
+            -# %strong= perfil_evento.event.title
+            .mi-evento-content
+              %div(class="fecha-#{perfil_evento.id}")
+              .image-mi-evento
+                = image_tag perfil_evento.event.photo(:medium)
+                .hover-mi-evento
+                  = link_to perfil_evento.event, :action => 'show', class: "event-item", method: :get  do
+                    %i.icon.icon-arrow-right
+                  = link_to  perfil_evento, :method => :delete, :data => { :confirm => '¿Seguro que quieres salir de la lista de inscritos de este evento?' }, remote: true  do
+                    %i.icon.icon-close
+
+            = javascript_tag do
+              $(".fecha-#{perfil_evento.id}").countdown({
+              until: new Date(#{perfil_evento.event.start.year}, #{perfil_evento.event.start.month}-1, #{perfil_evento.event.start.day}, #{perfil_evento.event.start.hour},  #{perfil_evento.event.start.min})});
